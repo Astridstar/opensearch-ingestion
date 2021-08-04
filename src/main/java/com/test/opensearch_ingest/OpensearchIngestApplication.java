@@ -7,7 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OpensearchIngestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OpensearchIngestApplication.class, args);
+
+		try {
+			ElasticsearchAdaptor adaptor = new ElasticsearchAdaptor();
+			SpringApplication.run(OpensearchIngestApplication.class, args);
+		}catch (Exception e) {
+
+		}
 	}
 
 }

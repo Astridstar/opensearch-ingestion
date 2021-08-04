@@ -69,7 +69,11 @@ public class ElasticsearchClient {
 
         return true;
     }
+    
     public void loadData(){
+
+        m_logger.info("Attempting to load data into elasticsearch now");
+
         //Create a client.
         RestClientBuilder builder = RestClient.builder(new HttpHost("localhost", 9200, "https"))
         .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {

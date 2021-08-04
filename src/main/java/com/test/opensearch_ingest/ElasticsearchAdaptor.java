@@ -26,6 +26,13 @@ public class ElasticsearchAdaptor {
             m_logger.error("Error configuring clients.");
             throw new InvalidObjectException("Error initialising the adaptor."); 
         }
+
+        try{
+            m_client.loadData();
+        } catch (Exception e) {
+            m_logger.error("Exception caught while trying to ingest data into elasticsearch {}", e);
+            throw new InvalidObjectException("Error ingesting data!"); 
+        }
     }
 
     private boolean loadSourceData(){
